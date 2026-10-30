@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projetos | Yuri Cirino</title>
+  <meta name="description" content="Projetos de Yuri Cirino: xLogger, biblioteca de logs para Arduino e ESP32, e DeltaCalc, calculadoras de engenharia elétrica baseadas na NBR 5410.">
+  <link rel="canonical" href="https://yuricirino.com.br/projetos.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://yuricirino.com.br/projetos.html">
+  <meta property="og:title" content="Projetos | Yuri Cirino">
+  <meta property="og:description" content="xLogger, biblioteca de logs para Arduino e ESP32, e DeltaCalc, calculadoras de engenharia elétrica baseadas na NBR 5410.">
+  <meta property="og:image" content="https://yuricirino.com.br/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Yuri Cirino, engenheiro eletricista em formação: sistemas embarcados, hardware digital e IoT.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f6f5f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#101614" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f6b4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='%23fff'%3EYC%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    <nav class="site-nav" aria-label="Páginas">
+      <a href="index.html">Currículo</a>
+      <a href="projetos.html" aria-current="page">Projetos</a>
+    </nav>
+
+    <header class="projects-head">
+      <p class="eyebrow">Ferramentas que criei e mantenho</p>
+      <h1>Projetos</h1>
+      <p class="focus">Do firmware à web: ferramentas nascidas de problemas reais de quem programa embarcados e projeta instalações elétricas.</p>
+    </header>
+
+    <main>
+      <article class="project">
+        <div class="preview preview-serial">
+          <div class="preview-bar"><span class="preview-dots" aria-hidden="true"></span><span>main.cpp + monitor serial, 115200 baud</span></div>
+          <div class="serial-panes">
+            <pre tabindex="0" aria-label="Exemplo de código com xLogger"><code>#include &lt;xLogger.h&gt;
+
+XLogger logger(Serial);
+
+void setup() {
+  Serial.begin(115200);
+  logger.info("boot ok");
+}
+
+void loop() {
+  int adc = analogRead(A0);
+  logger.debug("adc=", adc,
+               " volts=", adc * 5.0 / 1023);
+  delay(1000);
+}</code></pre>
+            <pre class="serial-output" tabindex="0" aria-label="Saída no monitor serial"><code><span class="lvl-info">[I]</span> boot ok
+<span class="lvl-debug">[D]</span> adc=512 volts=2.50</code></pre>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">
+            <h2>xLogger</h2>
+            <p class="project-meta">Biblioteca C++ · Arduino, ESP32, ESP8266 · MIT</p>
+          </div>
+          <p class="project-summary">Logs de depuração que funcionam como <code>Serial.print()</code>, mas podem ser desligados sem comentar linhas e removidos por inteiro do firmware final.</p>
+          <div class="skills">
+            <div>
+              <h3>Skills técnicas</h3>
+              <ul>
+                <li>C++11 com templates em biblioteca header-only, sem dependências</li>
+                <li>Registro sem <code>String</code>, evitando alocação no heap e fragmentação</li>
+                <li>Remoção em tempo de compilação por nível de log</li>
+                <li>CI que inspeciona firmware real de Uno e ESP32</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Skills pessoais</h3>
+              <ul>
+                <li>Empatia com quem usa: a API aproveita o que a pessoa já sabe de <code>Serial.print()</code></li>
+                <li>Documentação em inglês e português, com guia passo a passo</li>
+                <li>Cuidado com a comunidade open source: versões, changelog e guia de contribuição</li>
+              </ul>
+            </div>
+          </div>
+          <p class="project-links"><a class="btn" href="https://github.com/YuriCirino/xlogger">Ver no GitHub</a></p>
+        </div>
+      </article>
+
+      <article class="project">
+        <a class="preview preview-browser" href="https://deltacalc.netlify.app/" aria-label="Abrir o DeltaCalc">
+          <div class="preview-bar"><span class="preview-dots" aria-hidden="true"></span><span>deltacalc.netlify.app</span></div>
+          <img src="preview-deltacalc.png" width="1280" height="800" loading="lazy" alt="Página inicial do DeltaCalc, com cartões de calculadoras de dimensionamento de cabos, eletrodutos, queda de tensão e quadro de cargas.">
+        </a>
+        <div class="project-body">
+          <div class="project-title">
+            <h2>DeltaCalc</h2>
+            <p class="project-meta">Aplicação web · React · NBR 5410</p>
+          </div>
+          <p class="project-summary">Mais de 10 calculadoras gratuitas de engenharia elétrica, de dimensionamento de cabos a laboratórios visuais de fasores e trifásico. Nasceu da minha experiência como projetista elétrico, consultando tabelas da norma à mão.</p>
+          <div class="skills">
+            <div>
+              <h3>Skills técnicas</h3>
+              <ul>
+                <li>React 19, Vite, Tailwind CSS 4, react-hook-form e Zod</li>
+                <li>Regras de cálculo separadas da interface, com testes em Vitest</li>
+                <li>Tabelas da NBR 5410 fixadas em testes, valor a valor</li>
+                <li>Pré-renderização, SEO e gráficos animados em SVG próprio</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Skills pessoais</h3>
+              <ul>
+                <li>Visão de produto: um problema do meu trabalho virou uma ferramenta aberta a todos</li>
+                <li>Rigor técnico: revisão dos cálculos contra a norma e registro de cada erro corrigido</li>
+                <li>Comunicação: cada calculadora explica o critério por trás do resultado</li>
+              </ul>
+            </div>
+          </div>
+          <p class="project-links"><a class="btn btn-primary" href="https://deltacalc.netlify.app/">Abrir o DeltaCalc</a></p>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <span>Yuri Cirino</span>
+      <a href="mailto:yuricirino@outlook.com">yuricirino@outlook.com</a>
+    </footer>
+  </div>
+</body>
+</html>
