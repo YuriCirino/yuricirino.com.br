@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yuri Cirino | Sistemas Embarcados e Hardware Digital</title>
-  <meta name="description" content="Currículo de Yuri Cirino, engenheiro eletricista em formação com atuação em sistemas embarcados, firmware, IoT e hardware digital.">
+  <meta name="description" content="Currículo de Yuri Cirino, engenheiro eletricista em formação: hardware digital (RTL, SystemVerilog), sistemas embarcados, firmware e IoT.">
   <link rel="canonical" href="https://yuricirino.com.br/">
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:url" content="https://yuricirino.com.br/">
   <meta property="og:title" content="Yuri Cirino | Sistemas Embarcados e Hardware Digital">
-  <meta property="og:description" content="Engenheiro eletricista em formação com atuação em sistemas embarcados, firmware, IoT e hardware digital.">
+  <meta property="og:description" content="Engenheiro eletricista em formação: hardware digital (RTL, SystemVerilog), sistemas embarcados, firmware e IoT.">
   <meta property="og:image" content="https://yuricirino.com.br/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -33,7 +33,7 @@
     "jobTitle": "Engenheiro Eletricista em Formação",
     "address": { "@type": "PostalAddress", "addressLocality": "São Leopoldo", "addressRegion": "RS", "addressCountry": "BR" },
     "sameAs": ["https://github.com/YuriCirino", "https://www.linkedin.com/in/yuricirino/"],
-    "knowsAbout": ["Sistemas Embarcados", "Firmware", "IoT", "Hardware Digital", "Microeletrônica"]
+    "knowsAbout": ["Hardware Digital", "RTL", "SystemVerilog", "Verilog", "Sistemas Embarcados", "Firmware", "IoT", "Microeletrônica"]
   }
   </script>
 </head>
@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <svg class="pinout" viewBox="-12 0 372 300" role="img" aria-label="Desenho de um circuito integrado cujos pinos são as principais tecnologias: C/C++, Python, JavaScript, Java, Dart, ESP32, Arduino, LoRa, SPI/I2C e PCB.">
+      <svg class="pinout" viewBox="-12 0 372 300" role="img" aria-label="Desenho de um circuito integrado cujos pinos são as principais tecnologias: RTL, Verilog, C/C++, Python, JavaScript, ESP32, LoRa, SPI/I2C, APB e PCB.">
         <g class="pins">
           <path d="M80 60h30M80 105h30M80 150h30M80 195h30M80 240h30M250 60h30M250 105h30M250 150h30M250 195h30M250 240h30"/>
         </g>
@@ -67,10 +67,10 @@
           <text x="242" y="64" text-anchor="end">10</text><text x="242" y="109" text-anchor="end">9</text><text x="242" y="154" text-anchor="end">8</text><text x="242" y="199" text-anchor="end">7</text><text x="242" y="244" text-anchor="end">6</text>
         </g>
         <g class="pin-label" text-anchor="end">
-          <text x="74" y="64">C/C++</text><text x="74" y="109">Python</text><text x="74" y="154">JavaScript</text><text x="74" y="199">Java</text><text x="74" y="244">Dart</text>
+          <text x="74" y="64">RTL</text><text x="74" y="109">Verilog</text><text x="74" y="154">C/C++</text><text x="74" y="199">Python</text><text x="74" y="244">JavaScript</text>
         </g>
         <g class="pin-label">
-          <text x="286" y="64">ESP32</text><text x="286" y="109">Arduino</text><text x="286" y="154">LoRa</text><text x="286" y="199">SPI/I²C</text><text x="286" y="244">PCB</text>
+          <text x="286" y="64">ESP32</text><text x="286" y="109">LoRa</text><text x="286" y="154">SPI/I²C</text><text x="286" y="199">APB</text><text x="286" y="244">PCB</text>
         </g>
         <text class="chip-mark" x="180" y="146" text-anchor="middle">YC</text>
         <text class="chip-sub" x="180" y="168" text-anchor="middle">YURI CIRINO</text>
@@ -89,6 +89,7 @@
         <div class="body prose">
           <p>Estudante de Engenharia Elétrica com atuação em sistemas embarcados, firmware e integração de hardware/software. Experiência em desenvolvimento de soluções utilizando ESP32, comunicação LoRa, aquisição de dados e prototipagem de placas PCB.</p>
           <p>Participei de projetos de pesquisa e inovação voltados para instrumentação eletrônica e IoT, incluindo desenvolvimento de firmware, integração de sensores e análise de dados em tempo real. Possuo experiência complementar em programação, algoritmos, eletrônica aplicada e comunicação técnica.</p>
+          <p>Na especialização em circuitos digitais, desenvolvo RTL em SystemVerilog e pratico o fluxo de projeto com simulação, lint, síntese lógica e verificação de equivalência em ferramentas Cadence.</p>
           <p>Busco direcionar minha carreira para as áreas de hardware digital, microeletrônica e projeto de circuitos integrados.</p>
         </div>
       </section>
@@ -127,6 +128,19 @@
       <section>
         <h2><span>03</span>Projetos</h2>
         <div class="body">
+          <article class="item">
+            <div class="item-head"><h3>RSA_APB: interface APB para coprocessador RSA de 32 bits</h3><p class="org">Especialização, Unisinos</p></div>
+            <ul>
+              <li>RTL em SystemVerilog de um escravo AMBA 3 APB em volta de um núcleo RSA fornecido, com mapa de registradores, sequenciador de carga dos operandos e interrupção</li>
+              <li>Testbench autoverificável, com simulação de RTL, de netlist e com atrasos (SDF) no Xcelium</li>
+              <li>Lint e verificação de equivalência no Conformal; síntese lógica no Genus com restrições SDC, em bibliotecas de 45 nm e 28 nm</li>
+              <li>Ambiente de verificação em UVM em andamento</li>
+            </ul>
+          </article>
+          <article class="item">
+            <div class="item-head"><h3><a href="https://github.com/YuriCirino/neander-unitcontrol-fsm">Unidade de controle da CPU Neander</a></h3><p class="org">Projeto em equipe, Arquitetura e Organização de Processadores</p></div>
+            <p>Projeto em Verilog da FSM de busca, decodificação e execução e do decodificador de sinais de controle da CPU de 8 bits, verificados com testbenches autoverificáveis no Icarus Verilog.</p>
+          </article>
           <article class="item">
             <div class="item-head"><h3>Protótipo de Estação Meteorológica IoT</h3><p class="org">Iniciação Científica, Itumbiara – GO</p><time>03/2023 – 03/2024</time></div>
             <p>Desenvolvimento de firmware para aquisição e transmissão de dados de sensores, empregando o protocolo LoRa para comunicação em ambientes sem infraestrutura de internet.</p>
@@ -171,6 +185,8 @@
         <div class="body">
           <table class="specs">
             <tbody>
+              <tr><th scope="row">Hardware digital</th><td>RTL, SystemVerilog, Verilog, máquinas de estados, AMBA APB3, testbenches autoverificáveis, UVM (em aprendizado)</td></tr>
+              <tr><th scope="row">Ferramentas de EDA</th><td>Cadence Xcelium, Genus e Conformal, Icarus Verilog, restrições SDC</td></tr>
               <tr><th scope="row">Embarcados e hardware</th><td>ESP32, Arduino, PlatformIO, LoRa, PCB Design (EasyEDA)</td></tr>
               <tr><th scope="row">Linguagens</th><td>C/C++, Python, JavaScript, Java, Dart</td></tr>
               <tr><th scope="row">Ferramentas</th><td>Git/GitHub, AutoCAD 2D, Fusion 360, Impressão 3D</td></tr>
