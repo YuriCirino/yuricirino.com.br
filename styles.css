@@ -38,7 +38,11 @@ body {
 
 a { color: inherit; text-underline-offset: 3px; text-decoration-color: var(--accent); }
 a:hover { color: var(--accent); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  a, button { transition: color .15s ease, border-color .15s ease, background-color .15s ease, opacity .15s ease; }
+}
 
 h1, h2, h3, p, ul { margin: 0; padding: 0; }
 ul { list-style: none; }
@@ -329,6 +333,7 @@ a.preview:hover { border-color: var(--accent); color: inherit; }
   --term-line: #2b3632;
   --term-ink: #e7ece9;
   --term-muted: #9aa8a1;
+  --term-focus: #5ccfa3;
   border-color: var(--term-line);
   background: var(--term-bg);
   color: var(--term-ink);
@@ -348,6 +353,8 @@ a.preview:hover { border-color: var(--accent); color: inherit; }
   font: 400 .875rem/1.65 var(--mono);
 }
 
+/* O contêiner corta o que passa da borda, e o verde do tema claro some no fundo escuro. */
+.serial-panes pre:focus-visible { outline-color: var(--term-focus); outline-offset: -4px; }
 .serial-panes code { font: inherit; }
 .serial-output { border-left: 1px solid var(--term-line); }
 .lvl-info { color: #5ccfa3; }
@@ -421,6 +428,9 @@ footer {
 
 @media (max-width: 600px) {
   .page { padding: 0 16px; }
+  .contact { gap: 0; }
+  .contact li { display: flex; align-items: center; min-height: 44px; }
+  .contact a, footer .email-line a { display: inline-flex; align-items: center; min-height: 44px; }
   .highlights { grid-template-columns: 1fr; }
   .highlights li, .highlights li:first-child { padding: 16px 0; border-left: 0; }
   .highlights li + li { border-top: 1px solid var(--line); }
@@ -462,7 +472,10 @@ footer {
   .contact { display: flex; flex-wrap: wrap; gap: 0 16px; margin-top: 8px; font-size: 9pt; }
   .contact a { text-decoration: none; }
   .highlights li { padding: 8px 12px; }
-  section { grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px 0; }
+  /* Grade não se divide bem entre páginas e deixava quase meia página em branco; float se divide. */
+  section { display: flow-root; padding: 12px 0; }
+  section h2 { float: left; width: 110px; }
+  section .body { margin-left: 122px; }
   .body { max-width: none; }
   h2 { font-size: 10pt; }
   h3 { font-size: 10.5pt; }
@@ -470,7 +483,6 @@ footer {
   .highlights strong { font-size: 10.5pt; }
   .item + .item { margin-top: 8px; padding-top: 8px; }
   .item, .specs tr, .highlights { break-inside: avoid; }
-  h2 { break-after: avoid; }
   .specs th, .specs td { padding: 4px 16px 4px 0; }
   .specs th { width: 130px; }
   .tags li { padding: 2px 8px; font-size: 9pt; }
