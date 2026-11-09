@@ -19,10 +19,11 @@
   <meta name="theme-color" content="#f6f5f0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#101614" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f6b4f'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='%23fff'%3EYC%3C/text%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-mono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script src="copy-email.js" defer></script>
 </head>
 <body>
   <div class="page">
@@ -130,6 +131,5 @@ void loop() {
       <span class="email-line"><a href="mailto:yuricirino@outlook.com">yuricirino@outlook.com</a><button class="copy-email" type="button" aria-label="Copiar e-mail"><span aria-live="polite">Copiar</span></button></span>
     </footer>
   </div>
-  <script src="copy-email.js"></script>
 </body>
 </html>
